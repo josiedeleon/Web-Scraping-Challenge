@@ -20,9 +20,6 @@
     </style>
 </head>
 <body>
-
-    <div class = "container" style="text-align:center;">
-        <div class="jumbotron">
             <h1 class="display-4" style="font-weight:500;">Mission to Mars</h1>
             <p class="lead">
         </div>
@@ -30,9 +27,9 @@
     
     <!--first section-->
     <div class="container">
-        <h4>Latest Mars News</h4>
-        <h5>{{mars_data.mars_news.news_title}}</h5>
-        <p>{{mars_data.mars_news.news_p}}</p>
+        <h4> NASA Mars News</h4>
+        <h5>{news_title}</h5>
+        <p>{news_p}</p>
     </div>
 
 
@@ -42,10 +39,22 @@
             
             <!--left container-->
             <div class="col-8">
-                <h4>Featured Mars Image</h4>
-                <img src={{mars_data.mars_img}} class="img-fluid" alt="Responsive image" style="max-width:100%; max-height: auto;">
+                <h4>JPL Mars Space Images - Featured Image</h4>
+                <img src={featured_image_url} class="img-fluid" 
+                 style="max-width:100%; max-height: auto;">
+            </div>
+   </div>
+                <div style="margin-top:30px;">
+                    <!-- table -->
+                    <h5>Mars Facts</h5>
+                    <div style="max-width: 400px; max-height: 100px; font-size: 15px; margin-bottom: 50px;">
+                        {mars_facts_table}
+                    </div>
+                </div> 
             </div>
 
+        </div>
+    </div>
      
     <!--section for imgs-->
     <div class="container" style="margin-top: 100px;">
@@ -55,13 +64,13 @@
         <div class="col-12">
             <div class="row">
 
-                {% for img in mars_data.mars_hemisphere %}
+                {% for image in image_search %}
                 <div class = "col-6">
                     <!--card items-->
                     <div class="card" style="margin: 30px;">
-                        <img src="{{img.img_url}}" class="card-img-top">
+                        <img src="{full_images}" class="card-img-top">
                         <div class="card-body">
-                            <p class="card-text" style="font-weight: 700;">{{img.title}}</p>
+                            <p class="card-text" style="font-weight: 700;">{image.img}}</p>
                         </div>
                     </div>
                 </div>
